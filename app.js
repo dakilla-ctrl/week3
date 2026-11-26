@@ -12,6 +12,15 @@ let todos = [
   { id: 7, task: 'Get an Offer', completed: true },
 ];
 
+// Health Check / Root Route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'Todo API is running',
+    message: 'Append /todos to the URL to view all todos.'
+  });
+});
+app.set('json spaces', 2);
+
 // GET All – Read
 app.get('/todos', (req, res) => {
   res.status(200).json(todos); // Send array as JSON
